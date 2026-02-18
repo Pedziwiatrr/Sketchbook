@@ -32,4 +32,3 @@
 
 ![](pencil_sketches/2026_02_17_jinx_pencil_2.jpeg)
 
----
