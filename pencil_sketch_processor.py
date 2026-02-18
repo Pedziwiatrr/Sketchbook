@@ -1,4 +1,5 @@
 import os
+import argparse
 from PIL import Image, ImageEnhance
 
 # Sketches Order
@@ -14,21 +15,29 @@ SKETCHES = [
 ]
 
 
-def clean_and_build():
-    print("Cleaning up images and building README...")
+def clean_and_build(contrast_val, use_grey):
+    print(
+        f"Cleaning up images (Contrast: {contrast_val}, Greyscale: {use_grey}) and building README..."
+    )
 
+    os.makedirs("pencil_sketches/original", exist_ok=True)
+
+    processed_count = 0
     for img_name in SKETCHES:
         src_path = f"pencil_sketches/original/{img_name}"
         dst_path = f"pencil_sketches/{img_name}"
 
         if os.path.exists(src_path):
             with Image.open(src_path) as img:
-                print(f"Processing: {src_path}...")
-                img = img.convert("L")  # Greyscale
-                img = ImageEnhance.Contrast(img).enhance(3)  # Contrast boost
-                img.save(dst_path)
+                if use_grey:
+                    img = img.convert("L")  # Greyscale
 
-    # README.md generator based on SKETCHES order
+                img = ImageEnhance.Contrast(img).enhance(contrast_val)  # Contrast boost
+                img.save(dst_path)
+                processed_count += 1
+        else:
+            print(f"Skipping: {img_name} not found in pencil_sketches/original/")
+
     with open("README.md", "w", encoding="utf-8") as f:
         f.write("# Personal Sketchbook\n\n")
         f.write("## Pencil on paper\n\n")
@@ -38,8 +47,25 @@ def clean_and_build():
             if i < len(SKETCHES) - 1:
                 f.write("---\n\n")
 
-    print("Done! :)")
+    print(f"\nDone! Processed {processed_count} images. :)")
 
 
 if __name__ == "__main__":
-    clean_and_build()
+    parser = argparse.ArgumentParser(description="Process pencil sketches for GitHub.")
+    parser.add_argument(
+        "--contrast",
+        "-c",
+        type=float,
+        default=3.0,
+        help="Contrast boost level",
+    )
+    parser.add_argument(
+        "--no-grey",
+        action="store_false",
+        dest="grey",
+        help="Disable greyscale conversion",
+    )
+    parser.set_defaults(grey=True)
+
+    args = parser.parse_args()
+    clean_and_build(args.contrast, args.grey)
