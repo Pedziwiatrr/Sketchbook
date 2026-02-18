@@ -18,12 +18,15 @@ def clean_and_build():
     print("Cleaning up images and building README...")
 
     for img_name in SKETCHES:
-        path = f"pencil_sketches/{img_name}"
-        if os.path.exists(path):
-            with Image.open(path) as img:
+        src_path = f"pencil_sketches/original/{img_name}"
+        dst_path = f"pencil_sketches/{img_name}"
+
+        if os.path.exists(src_path):
+            with Image.open(src_path) as img:
+                print(f"Processing: {src_path}...")
                 img = img.convert("L")  # Greyscale
-                img = ImageEnhance.Contrast(img).enhance(1.1)  # Contrast boost
-                img.save(path)
+                img = ImageEnhance.Contrast(img).enhance(3)  # Contrast boost
+                img.save(dst_path)
 
     # README.md generator based on SKETCHES order
     with open("README.md", "w", encoding="utf-8") as f:
