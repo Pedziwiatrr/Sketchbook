@@ -15,9 +15,9 @@ SKETCHES = [
 ]
 
 
-def clean_and_build(contrast_val, use_grey):
+def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
     print(
-        f"Cleaning up images (Contrast: {contrast_val}, Greyscale: {use_grey}) and building README..."
+        f"Cleaning up images (Contrast: {contrast_val}, Brightness: {brightness_val}, Sharpness: {sharpness_val}, Greyscale: {use_grey}) and building README..."
     )
 
     os.makedirs("pencil_sketches/original", exist_ok=True)
@@ -32,7 +32,9 @@ def clean_and_build(contrast_val, use_grey):
                 if use_grey:
                     img = img.convert("L")  # Greyscale
 
-                img = ImageEnhance.Contrast(img).enhance(contrast_val)  # Contrast boost
+                img = ImageEnhance.Brightness(img).enhance(brightness_val)
+                img = ImageEnhance.Sharpness(img).enhance(sharpness_val)
+                img = ImageEnhance.Contrast(img).enhance(contrast_val)
                 img.save(dst_path)
                 processed_count += 1
         else:
@@ -51,13 +53,27 @@ def clean_and_build(contrast_val, use_grey):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process pencil sketches for GitHub.")
+    parser = argparse.ArgumentParser(description="Process pencil sketches.")
     parser.add_argument(
         "--contrast",
         "-c",
         type=float,
         default=3.0,
         help="Contrast boost level",
+    )
+    parser.add_argument(
+        "--brightness",
+        "-b",
+        type=float,
+        default=1.0,
+        help="Brightness adjustment level",
+    )
+    parser.add_argument(
+        "--sharpness",
+        "-s",
+        type=float,
+        default=1.0,
+        help="Sharpness adjustment level",
     )
     parser.add_argument(
         "--no-grey",
@@ -68,4 +84,4 @@ if __name__ == "__main__":
     parser.set_defaults(grey=True)
 
     args = parser.parse_args()
-    clean_and_build(args.contrast, args.grey)
+    clean_and_build(args.contrast, args.brightness, args.sharpness, args.grey)
