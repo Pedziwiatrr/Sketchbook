@@ -18,10 +18,6 @@
 
 ---
 
-![](pencil_sketches/2018_12_30_gun_pencil_1.jpeg)
-
----
-
 ![](pencil_sketches/2026_02_18_berserk_pencil_2.jpeg)
 
 ---
@@ -34,8 +30,13 @@
 
 ---
 
+![](pencil_sketches/2018_12_30_gun_pencil_1.jpeg)
+
+---
+
 ![](pencil_sketches/2026_02_18_skull_pencil_1.jpeg)
 
 ---
 
 ![](pencil_sketches/2026_02_17_reptile_pencil_1.jpeg)
+
