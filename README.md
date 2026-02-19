@@ -6,10 +6,6 @@
 
 ---
 
-![](pencil_sketches/2026_02_19_pantheon_pencil_2.jpeg)
-
----
-
 ![](pencil_sketches/2026_02_17_berserk_pencil_1.jpeg)
 
 ---
