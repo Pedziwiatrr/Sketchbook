@@ -14,7 +14,6 @@ SKETCHES = [
     "2026_02_16_jinx_pencil_4.jpeg",
     "2026_02_18_skull_pencil_1.jpeg",
     "2026_02_17_reptile_pencil_1.jpeg",
-    "2026_02_17_jinx_pencil_2.jpeg",
 ]
 
 
