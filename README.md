@@ -2,15 +2,15 @@
 
 ## Pencil on paper
 
-![](pencil_sketches/2026_02_21_kindred_pencil_1.jpeg)
-
----
-
 ![](pencil_sketches/2026_02_19_pantheon_pencil_1.jpeg)
 
 ---
 
 ![](pencil_sketches/2026_02_20_xenomorph_pencil_2.jpeg)
+
+---
+
+![](pencil_sketches/2026_02_21_kindred_pencil_1.jpeg)
 
 ---
 

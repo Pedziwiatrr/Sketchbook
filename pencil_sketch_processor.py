@@ -4,9 +4,9 @@ from PIL import Image, ImageEnhance
 
 # Sketches Order
 SKETCHES = [
-    "2026_02_21_kindred_pencil_1.jpeg",
     "2026_02_19_pantheon_pencil_1.jpeg",
     "2026_02_20_xenomorph_pencil_2.jpeg",
+    "2026_02_21_kindred_pencil_1.jpeg",
     "2026_02_19_jinx_wolf_pencil_1.jpeg",
     "2026_02_17_berserk_pencil_1.jpeg",
     "2026_02_19_witcher_berserk_pencil_1.jpeg",
