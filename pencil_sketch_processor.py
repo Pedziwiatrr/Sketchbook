@@ -22,7 +22,6 @@ SKETCHES = {
     "AK-47 (old)": "2018_12_30_gun_pencil_1.jpeg",
 }
 
-
 def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
     print(
         f"Cleaning up images (Contrast: {contrast_val}, Brightness: {brightness_val}, Sharpness: {sharpness_val}, Greyscale: {use_grey}) and building README..."
@@ -31,6 +30,8 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
     os.makedirs("pencil_sketches/original", exist_ok=True)
 
     processed_count = 0
+    valid_sketches = []
+
     for title, img_name in SKETCHES.items():
         src_path = f"pencil_sketches/original/{img_name}"
         dst_path = f"pencil_sketches/{img_name}"
@@ -45,6 +46,7 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
                 img = ImageEnhance.Contrast(img).enhance(contrast_val)
                 img.save(dst_path)
                 processed_count += 1
+                valid_sketches.append((title, img_name))
         else:
             print(f"Skipping: {img_name} not found in pencil_sketches/original/")
 
@@ -52,15 +54,12 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
         f.write("# Personal Sketchbook\n\n")
         f.write("## Pencil on paper\n\n")
 
-        sketches_items = list(SKETCHES.items())
-        for i, (title, img_name) in enumerate(sketches_items):
-            f.write(f"**{title}**\n")
-            f.write(f"![](pencil_sketches/{img_name})\n\n")
-            if i < len(sketches_items) - 1:
+        for i, (title, img_name) in enumerate(valid_sketches):
+            f.write(f"![{title}](pencil_sketches/{img_name})\n\n")
+            if i < len(valid_sketches) - 1:
                 f.write("---\n\n")
 
     print(f"\nDone! Processed {processed_count} images. :)")
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process pencil sketches.")
