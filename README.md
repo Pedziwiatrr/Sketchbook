@@ -10,6 +10,10 @@
 
 ---
 
+![](pencil_sketches/2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg)
+
+---
+
 ![](pencil_sketches/2026_02_21_kindred_pencil_1.jpeg)
 
 ---
