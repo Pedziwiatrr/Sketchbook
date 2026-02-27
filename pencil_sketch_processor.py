@@ -3,24 +3,24 @@ import argparse
 from PIL import Image, ImageEnhance
 
 # Sketches Order
-SKETCHES = [
-    "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
-    "2026_02_20_xenomorph_pencil_2.jpeg",
-    "2026_02_19_pantheon_pencil_1.jpeg",
-    "2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg",
-    "2026_02_21_kindred_pencil_1.jpeg",
-    "2026_02_21_jinx_warwick_silco_pencil_1.jpeg",
-    "2026_02_19_jinx_wolf_pencil_1.jpeg",
-    "2026_02_17_berserk_pencil_1.jpeg",
-    "2026_02_19_witcher_berserk_pencil_1.jpeg",
-    "2026_02_17_jinx_pencil_1.jpeg",
-    "2026_02_18_berserk_pencil_2.jpeg",
-    "2026_02_18_jinx_pencil_3.jpeg",
-    "2026_02_16_jinx_pencil_4.jpeg",
-    "2026_02_18_skull_pencil_1.jpeg",
-    "2026_02_17_reptile_pencil_1.jpeg",
-    "2018_12_30_gun_pencil_1.jpeg",
-]
+SKETCHES = {
+    "Bela Dimitrescu": "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
+    "Xenomorph": "2026_02_20_xenomorph_pencil_2.jpeg",
+    "Pantheon": "2026_02_19_pantheon_pencil_1.jpeg",
+    "Sukuna, Gojo & Mahoraga": "2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg",
+    "Kindred": "2026_02_21_kindred_pencil_1.jpeg",
+    "Jinx, Warwick & Silco": "2026_02_21_jinx_warwick_silco_pencil_1.jpeg",
+    "Jinx & Death": "2026_02_19_jinx_wolf_pencil_1.jpeg",
+    "Guts": "2026_02_17_berserk_pencil_1.jpeg",
+    "Witcher vs Femto": "2026_02_19_witcher_berserk_pencil_1.jpeg",
+    "Jinx with pistol": "2026_02_17_jinx_pencil_1.jpeg",
+    "Griffith": "2026_02_18_berserk_pencil_2.jpeg",
+    "Jinx with Z-Drive": "2026_02_18_jinx_pencil_3.jpeg",
+    "Jinx in Hoodie": "2026_02_16_jinx_pencil_4.jpeg",
+    "Skull": "2026_02_18_skull_pencil_1.jpeg",
+    "Dragon": "2026_02_17_reptile_pencil_1.jpeg",
+    "AK-47 (old)": "2018_12_30_gun_pencil_1.jpeg",
+}
 
 
 def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
@@ -31,7 +31,7 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
     os.makedirs("pencil_sketches/original", exist_ok=True)
 
     processed_count = 0
-    for img_name in SKETCHES:
+    for title, img_name in SKETCHES.items():
         src_path = f"pencil_sketches/original/{img_name}"
         dst_path = f"pencil_sketches/{img_name}"
 
@@ -52,9 +52,11 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
         f.write("# Personal Sketchbook\n\n")
         f.write("## Pencil on paper\n\n")
 
-        for i, img_name in enumerate(SKETCHES):
+        sketches_items = list(SKETCHES.items())
+        for i, (title, img_name) in enumerate(sketches_items):
+            f.write(f"**{title}**\n")
             f.write(f"![](pencil_sketches/{img_name})\n\n")
-            if i < len(SKETCHES) - 1:
+            if i < len(sketches_items) - 1:
                 f.write("---\n\n")
 
     print(f"\nDone! Processed {processed_count} images. :)")
