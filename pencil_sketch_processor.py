@@ -13,11 +13,11 @@ SKETCHES = {
     "Jinx & Death": "2026_02_19_jinx_wolf_pencil_1.jpeg",
     "Guts": "2026_02_17_berserk_pencil_1.jpeg",
     "Witcher vs Femto": "2026_02_19_witcher_berserk_pencil_1.jpeg",
-    "Jinx with pistol": "2026_02_17_jinx_pencil_1.jpeg",
+    "Jinx with Pistol": "2026_02_17_jinx_pencil_1.jpeg",
     "Griffith": "2026_02_18_berserk_pencil_2.jpeg",
     "Jinx with Z-Drive": "2026_02_18_jinx_pencil_3.jpeg",
     "Jinx in Hoodie": "2026_02_16_jinx_pencil_4.jpeg",
-    "Skull": "2026_02_18_skull_pencil_1.jpeg",
+    "Monster Skull": "2026_02_18_skull_pencil_1.jpeg",
     "Dragon": "2026_02_17_reptile_pencil_1.jpeg",
     "AK-47 (old)": "2018_12_30_gun_pencil_1.jpeg",
 }
