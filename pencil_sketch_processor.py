@@ -7,6 +7,7 @@ SKETCHES = {
     "Bela Dimitrescu": "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
     "Xenomorph": "2026_02_20_xenomorph_pencil_2.jpeg",
     "Pantheon": "2026_02_19_pantheon_pencil_2.jpeg",
+    "Maliketh": "2026_06_29_maliketh_pencil_1.jpeg",
     "Sukuna, Gojo & Mahoraga": "2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg",
     "Kindred": "2026_02_21_kindred_pencil_1.jpeg",
     "Jinx, Warwick & Silco": "2026_02_21_jinx_warwick_silco_pencil_1.jpeg",

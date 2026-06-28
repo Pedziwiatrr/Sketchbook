@@ -14,6 +14,10 @@
 
 ---
 
+![Maliketh](pencil_sketches/2026_06_29_maliketh_pencil_1.jpeg)
+
+---
+
 ![Sukuna, Gojo & Mahoraga](pencil_sketches/2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg)
 
 ---
