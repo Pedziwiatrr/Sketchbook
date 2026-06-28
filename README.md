@@ -54,7 +54,7 @@
     </td>
     <td width="50%" align="center">
       <img src="pencil_sketches/2026_02_18_berserk_pencil_2.jpeg"  alt="Witcher vs Femto" width="100%">
-      <br><sub>Witcher vs Femto</sub>
+      <br><sub>Femto</sub>
     </td>
   </tr>
 
