@@ -58,3 +58,10 @@
     </td>
   </tr>
 
+</table>
+
+## Usage
+
+```bash
+python pencil_sketch_processor.py --contrast 3.0 --brightness 1.0 --sharpness 1.0
+```
