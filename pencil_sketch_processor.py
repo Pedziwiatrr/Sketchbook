@@ -5,23 +5,16 @@ from PIL import Image, ImageEnhance
 # Sketches Order
 SKETCHES = {
     'Malenia2': "2026_07_02_malenia_pencil_2.jpeg",
-    "Bela Dimitrescu": "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
     "Xenomorph": "2026_02_20_xenomorph_pencil_2.jpeg",
-    "Pantheon": "2026_02_19_pantheon_pencil_2.jpeg",
     "Maliketh": "2026_06_29_maliketh_pencil_1.jpeg",
-    "Sukuna, Gojo & Mahoraga": "2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg",
+    "Pantheon": "2026_02_19_pantheon_pencil_1.jpeg",
+    "Bela Dimitrescu": "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
     "Kindred": "2026_02_21_kindred_pencil_1.jpeg",
+    "Sukuna, Gojo & Mahoraga": "2026_02_27_sukuna_gojo_mahoraga_pencil_1.jpeg",
     "Jinx, Warwick & Silco": "2026_02_21_jinx_warwick_silco_pencil_1.jpeg",
     "Jinx & Death": "2026_02_19_jinx_wolf_pencil_1.jpeg",
     "Guts": "2026_02_17_berserk_pencil_1.jpeg",
-    "Witcher vs Femto": "2026_02_19_witcher_berserk_pencil_1.jpeg",
-    "Jinx with Pistol": "2026_02_17_jinx_pencil_1.jpeg",
     "Griffith": "2026_02_18_berserk_pencil_2.jpeg",
-    "Jinx with Z-Drive": "2026_02_18_jinx_pencil_3.jpeg",
-    "Jinx in Hoodie": "2026_02_16_jinx_pencil_4.jpeg",
-    "Monster Skull": "2026_02_18_skull_pencil_1.jpeg",
-    "Dragon": "2026_02_17_reptile_pencil_1.jpeg",
-    "AK-47 (old)": "2018_12_30_gun_pencil_1.jpeg",
 }
 
 def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
@@ -52,14 +45,33 @@ def clean_and_build(contrast_val, brightness_val, sharpness_val, use_grey):
         else:
             print(f"Skipping: {img_name} not found in pencil_sketches/original/")
 
+    def cell(title, img_name):
+        return (
+            '    <td width="50%" align="center">\n'
+            f'      <img src="pencil_sketches/{img_name}" alt="{title}" width="100%">\n'
+            f"      <br><sub>{title}</sub>\n"
+            "    </td>\n"
+        )
+
     with open("README.md", "w", encoding="utf-8") as f:
         f.write("# Personal Sketchbook\n\n")
         f.write("## Pencil on paper\n\n")
+        f.write("<table>\n")
 
-        for i, (title, img_name) in enumerate(valid_sketches):
-            f.write(f"![{title}](pencil_sketches/{img_name})\n\n")
-            if i < len(valid_sketches) - 1:
-                f.write("---\n\n")
+        for i in range(0, len(valid_sketches), 2):
+            f.write("  <tr>\n")
+            for title, img_name in valid_sketches[i:i + 2]:
+                f.write(cell(title, img_name))
+            f.write("  </tr>\n\n")
+
+        f.write("</table>\n\n")
+        f.write("## Usage\n\n")
+        f.write("```bash\n")
+        f.write(
+            "python pencil_sketch_processor.py "
+            "--contrast 3.0 --brightness 1.0 --sharpness 1.0\n"
+        )
+        f.write("```\n")
 
     print(f"\nDone! Processed {processed_count} images. :)")
 
