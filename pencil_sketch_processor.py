@@ -4,6 +4,7 @@ from PIL import Image, ImageEnhance
 
 # Sketches Order
 SKETCHES = {
+    'Malenia2': "2026_07_02_malenia_pencil_2.jpeg",
     "Bela Dimitrescu": "2026_02_27_bella_dimitrescu_pencil_1.jpeg",
     "Xenomorph": "2026_02_20_xenomorph_pencil_2.jpeg",
     "Pantheon": "2026_02_19_pantheon_pencil_2.jpeg",
